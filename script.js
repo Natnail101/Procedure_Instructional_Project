@@ -42,19 +42,32 @@ function renderResults(){
   }
 }
 
+function stopDemoAudio(){
+  if (!demoAudio) return;
+  demoAudio.pause();
+  demoAudio.currentTime = 0;
+
+  const lines = document.querySelectorAll(".tline.active");
+  lines.forEach(l => l.classList.remove("active"));
+}
+
 function showScreen(index){
+  const nextId = screens[index].id;
+
+  // If we are leaving the demo screen, stop the narration
+  const currentId = screens[currentScreen].id;
+  if (currentId === "demo" && nextId !== "demo") stopDemoAudio();
+
   screens.forEach(s => s.classList.remove("active"));
   screens[index].classList.add("active");
   currentScreen = index;
+
   updateProgress();
   window.scrollTo({ top: 0, behavior: "smooth" });
 
-  const id = screens[index].id;
+  shuffleForScreenId(nextId);
 
-  // Shuffle choices when entering any practice screen
-  shuffleForScreenId(id);
-
-  if (id === "results") renderResults();
+  if (nextId === "results") renderResults();
 }
 
 nextButtons.forEach(btn => {
