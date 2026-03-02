@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Alt Text Decision Procedure</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="topbar" role="banner">
+  <div class="brand">
+    <div class="brand-title">Alt Text Decision Procedure</div>
+    <div class="brand-subtitle">Write alt text that matches purpose and context</div>
+  </div>
+
+  <div class="progress" aria-label="Progress">
+    <div class="progress-label" id="progressLabel">Step 1 of 8</div>
+    <div class="progress-bar" aria-hidden="true">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+  </div>
+</header>
+
+<main class="container" id="main" role="main">
+
+  <!-- 1: Objective -->
+  <section class="screen active" id="objective" aria-labelledby="objTitle">
+    <h1 id="objTitle">Objective</h1>
+    <div class="card">
+      <p>
+        Given an image embedded within a webpage context, you will apply an alt text decision procedure to correctly identify the image role
+        (decorative, informative, functional, or complex) and produce context-aligned alt text.
+      </p>
+      <p class="muted">
+        <strong>Success criteria:</strong> correct role classification and appropriate alt text in at least <strong>3 out of 4</strong> scenarios.
+      </p>
+    </div>
+    <div class="nav">
+      <button class="btn primary next" type="button">Next</button>
+    </div>
+  </section>
+
+  <!-- 2: Generality -->
+  <section class="screen" id="generality" aria-labelledby="genTitle">
+    <h1 id="genTitle">Alt Text Decision Flow</h1>
+    <div class="card">
+      <ol class="steps">
+        <li><strong>Identify the image role</strong> (decorative, informative, functional, complex)</li>
+        <li><strong>Follow the correct branch</strong> based on role</li>
+        <li><strong>Write alt text</strong> focused on purpose and meaning</li>
+        <li><strong>Remove redundancy</strong> (avoid “image of”; don’t repeat nearby text)</li>
+        <li><strong>Check clarity</strong> and confirm it fits the context</li>
+      </ol>
+      <div class="callout">
+        The same image can be a different role depending on context. Always decide role based on how the image is used on the page.
+      </div>
+    </div>
+    <div class="nav">
+      <button class="btn ghost back" type="button">Back</button>
+      <button class="btn primary next" type="button">Next</button>
+    </div>
+  </section>
+
+  <!-- 3: Demonstration -->
+  <section class="screen" id="demo" aria-labelledby="demoTitle">
+    <h1 id="demoTitle">Demonstration</h1>
+
+    <div class="grid">
+      <div class="card">
+        <figure class="figure">
+          <img class="demo-img" src="images/RIT_Enrollment.png" alt="Bar chart showing RIT enrollment values across multiple years.">
+          <figcaption class="caption">
+            Enrollment has steadily increased over the past five years, reaching its highest point in Fall 2023.
+          </figcaption>
+        </figure>
+
+        <div class="demo-text">
+          <div class="demo-block">
+            <div class="demo-label">Initial draft (too vague)</div>
+            <div class="demo-box">Enrollment numbers chart.</div>
+          </div>
+
+          <div class="demo-block">
+            <div class="demo-label">Revised alt text (summary)</div>
+            <div class="demo-box">
+              Bar chart showing RIT enrollment increasing from 18,897 in Fall 2019 to 20,570 in Fall 2023.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2 class="small-title">Key signals (keywords only)</h2>
+        <ul class="keywords">
+          <li>Identify role</li>
+          <li>Determine purpose</li>
+          <li>Draft alt text</li>
+          <li>Remove redundancy</li>
+          <li>Check clarity</li>
+        </ul>
+
+        <div class="audio-wrap">
+          <label class="audio-label" for="demoAudio">Narration</label>
+          <audio id="demoAudio" controls>
+            <source src="audio/Demo Narrative.m4a" type="audio/mp4">
+          </audio>
+
+          <button class="btn ghost transcript-toggle" type="button" id="toggleTranscript" aria-expanded="false" aria-controls="transcript">
+            View transcript
+          </button>
+
+            <div id="transcript" class="transcript" hidden aria-label="Narration transcript">
+                <p class="tline" data-start="0.0" data-end="11.0">
+                    I start by identifying the role of the image. This visual presents multi-year enrollment data using bars and numeric values, so it qualifies as a complex image.
+                </p>
+
+                <p class="tline" data-start="11.5" data-end="15.0">
+                    The purpose is to show enrollment growth over time.
+                </p>
+
+                <p class="tline" data-start="15.0" data-end="21.0">
+                    A weak alt text would be “Enrollment numbers chart.” That’s too vague.
+                </p>
+
+                <p class="tline" data-start="21.0" data-end="34.5">
+                    A stronger version is: “Bar chart showing RIT enrollment increasing from 18,897 in Fall 2019 to 20,570 in Fall 2023.”
+                </p>
+
+                <p class="tline" data-start="35.5" data-end="40.0">
+                    This version summarizes the key trend and reflects the image’s purpose.
+                </p>
+
+                <p class="tline" data-start="40.0" data-end="49.0">
+                    Because this is complex data, a longer description should also appear in the surrounding content. For example, a caption might explain that enrollment has steadily increased over the past five years, reaching its highest point in 2023.
+                </p>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn ghost back" type="button">Back</button>
+      <button class="btn primary next" type="button">Next</button>
+    </div>
+  </section>
+
+  <!-- 4: Practice 1 (Informative) -->
+  <section class="screen" id="practice1" aria-labelledby="p1Title">
+    <h1 id="p1Title">Practice 1 – Informative Image</h1>
+
+    <div class="card">
+      <img class="practice-img" src="images/ntse.jpg" alt="">
+      <p class="prompt">
+        Context: This image appears inside an article titled <strong>“Market Volatility Surges on Wall Street.”</strong>
+      </p>
+
+      <fieldset class="fieldset">
+        <legend class="legend">1) Choose the image role</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="role1" value="informative"> Informative</label>
+          <label class="choice"><input type="radio" name="role1" value="decorative"> Decorative</label>
+          <label class="choice"><input type="radio" name="role1" value="functional"> Functional</label>
+          <label class="choice"><input type="radio" name="role1" value="complex"> Complex</label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label class="label" for="alt1">2) Write alt text (purpose-focused)</label>
+        <textarea id="alt1" rows="4" placeholder="Write concise alt text that matches the article context..."></textarea>
+        <div class="microhint">Avoid “image of”. Include key meaning/action relevant to the article.</div>
+      </div>
+
+      <div class="nav left">
+        <button class="btn secondary" type="button" id="check1">Check Answer</button>
+        <button class="btn subtle" type="button" id="reset1">Reset</button>
+      </div>
+
+      <div id="feedback1" class="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn ghost back" type="button">Back</button>
+      <button class="btn primary next" type="button">Next</button>
+    </div>
+  </section>
+
+ <!-- 5: Practice 2 (Functional) -->
+<section class="screen" id="practice2" aria-labelledby="p2Title">
+  <h1 id="p2Title">Practice 2 – Functional Image</h1>
+
+  <div class="card">
+    <img class="practice-img" src="images/radiobutton.png" alt="">
+    
+    <p class="prompt">
+      Context: This image is a clickable control that allows users to choose a display preference.
+    </p>
+
+    <fieldset class="fieldset">
+      <legend class="legend">1) Choose the image role</legend>
+      <div class="choices">
+        <label class="choice"><input type="radio" name="role2" value="functional"> Functional</label>
+        <label class="choice"><input type="radio" name="role2" value="informative"> Informative</label>
+        <label class="choice"><input type="radio" name="role2" value="decorative"> Decorative</label>
+        <label class="choice"><input type="radio" name="role2" value="complex"> Complex</label>
+      </div>
+    </fieldset>
+
+    <div class="field">
+      <label class="label" for="alt2">2) Write alt text (action-focused)</label>
+      <textarea id="alt2" rows="3" placeholder="Describe what happens when this control is activated..."></textarea>
+      <div class="microhint">Functional images describe the action, not the appearance.</div>
+    </div>
+
+    <div class="nav left">
+      <button class="btn secondary" type="button" id="check2">Check Answer</button>
+      <button class="btn subtle" type="button" id="reset2">Reset</button>
+    </div>
+
+    <div id="feedback2" class="feedback" role="status" aria-live="polite"></div>
+  </div>
+
+  <div class="nav">
+    <button class="btn ghost back" type="button">Back</button>
+    <button class="btn primary next" type="button">Next</button>
+  </div>
+</section>
+
+  <!-- 6: Practice 3 (Decorative) -->
+  <section class="screen" id="practice3" aria-labelledby="p3Title">
+    <h1 id="p3Title">Practice 3 – Decorative Image</h1>
+
+    <div class="card">
+      <img class="practice-img" src="images/skydiving.jpg" alt="">
+      <p class="prompt">
+        Context: This image is used as a full-width background behind the headline <strong>“Experience Freedom.”</strong>
+      </p>
+
+      <fieldset class="fieldset">
+        <legend class="legend">Choose the image role</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="role3" value="decorative"> Decorative</label>
+          <label class="choice"><input type="radio" name="role3" value="informative"> Informative</label>
+          <label class="choice"><input type="radio" name="role3" value="functional"> Functional</label>
+          <label class="choice"><input type="radio" name="role3" value="complex"> Complex</label>
+        </div>
+      </fieldset>
+
+      <div class="nav left">
+        <button class="btn secondary" type="button" id="check3">Check Answer</button>
+        <button class="btn subtle" type="button" id="reset3">Reset</button>
+      </div>
+
+      <div id="feedback3" class="feedback" role="status" aria-live="polite"></div>
+
+      <div class="callout">
+        Decorative images should use empty alt text: <code>alt=""</code>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn ghost back" type="button">Back</button>
+      <button class="btn primary next" type="button">Next</button>
+    </div>
+  </section>
+
+  <!-- 7: Practice 4 (Complex) -->
+  <section class="screen" id="practice4" aria-labelledby="p4Title">
+    <h1 id="p4Title">Practice 4 – Complex Image</h1>
+
+    <div class="card">
+      <img class="practice-img" src="images/complexchart.jpg" alt="">
+      <p class="prompt">
+        Context: This chart appears in a financial report explaining intraday price movement.
+      </p>
+
+      <fieldset class="fieldset">
+        <legend class="legend">1) Choose the image role</legend>
+        <div class="choices">
+          <label class="choice"><input type="radio" name="role4" value="complex"> Complex</label>
+          <label class="choice"><input type="radio" name="role4" value="informative"> Informative</label>
+          <label class="choice"><input type="radio" name="role4" value="decorative"> Decorative</label>
+          <label class="choice"><input type="radio" name="role4" value="functional"> Functional</label>
+        </div>
+      </fieldset>
+
+      <div class="field">
+        <label class="label" for="alt4">2) Write alt text (short summary)</label>
+        <textarea id="alt4" rows="3" placeholder="Write a short summary of what the chart shows..."></textarea>
+        <div class="microhint">Complex images need a short alt summary + a longer description elsewhere.</div>
+      </div>
+
+      <div class="nav left">
+        <button class="btn secondary" type="button" id="check4">Check Answer</button>
+        <button class="btn subtle" type="button" id="reset4">Reset</button>
+      </div>
+
+      <div id="feedback4" class="feedback" role="status" aria-live="polite"></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn ghost back" type="button">Back</button>
+      <button class="btn primary next" type="button">Next</button>
+    </div>
+  </section>
+
+  <!-- 8: Results -->
+  <section class="screen" id="results" aria-labelledby="resTitle">
+    <h1 id="resTitle">Results</h1>
+
+    <div class="card">
+      <p><strong>Your score:</strong> <span id="scoreText">0 / 4</span></p>
+      <p id="masteryText" class="muted"></p>
+
+      <div class="callout">
+        Mastery goal: <strong>3 out of 4</strong> correct.
+      </div>
+
+      <div class="nav left">
+        <button class="btn secondary" type="button" id="restart">Restart Practice</button>
+      </div>
+    </div>
+
+    <div class="nav">
+      <button class="btn ghost back" type="button">Back</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <span>HCIN 661/ISTE 561 — Procedure Project</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
