@@ -49,7 +49,12 @@ function showScreen(index){
   updateProgress();
   window.scrollTo({ top: 0, behavior: "smooth" });
 
-  if (screens[index].id === "results") renderResults();
+  const id = screens[index].id;
+
+  // Shuffle choices when entering any practice screen
+  shuffleForScreenId(id);
+
+  if (id === "results") renderResults();
 }
 
 nextButtons.forEach(btn => {
@@ -320,9 +325,62 @@ if (restartBtn){
         toggleTranscriptBtn.textContent = "View transcript";
       }
     }
-
-    showScreen(3);
+    shuffleAllPracticeChoices();
+    showScreen(4);
   });
 }
+function shuffleOptions(groupName){
+  const options = Array.from(document.querySelectorAll(`input[name="${groupName}"]`));
+  if(options.length === 0) return;
 
+  const container = options[0].closest(".choices");
+  const labels = options.map(input => input.closest("label"));
+
+  // Fisher–Yates shuffle
+  for(let i = labels.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [labels[i], labels[j]] = [labels[j], labels[i]];
+  }
+
+  labels.forEach(label => container.appendChild(label));
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  shuffleOptions("role1");
+  shuffleOptions("role2");
+  shuffleOptions("role3");
+  shuffleOptions("role4");
+});
+
+function shuffleOptions(groupName){
+  const inputs = Array.from(document.querySelectorAll(`input[name="${groupName}"]`));
+  if (inputs.length === 0) return;
+
+  const container = inputs[0].closest(".choices");
+  if (!container) return;
+
+  const labels = inputs.map(input => input.closest("label")).filter(Boolean);
+
+  for (let i = labels.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [labels[i], labels[j]] = [labels[j], labels[i]];
+  }
+
+  labels.forEach(label => container.appendChild(label));
+}
+
+function shuffleAllPracticeChoices(){
+  shuffleOptions("role1");
+  shuffleOptions("role2");
+  shuffleOptions("role3");
+  shuffleOptions("role4");
+}
+
+function shuffleForScreenId(screenId){
+  if (screenId === "practice1") shuffleOptions("role1");
+  if (screenId === "practice2") shuffleOptions("role2");
+  if (screenId === "practice3") shuffleOptions("role3");
+  if (screenId === "practice4") shuffleOptions("role4");
+}
+shuffleAllPracticeChoices();
 updateProgress();

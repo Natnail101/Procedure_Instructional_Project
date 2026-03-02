@@ -17,7 +17,7 @@
   </div>
 
   <div class="progress" aria-label="Progress">
-    <div class="progress-label" id="progressLabel">Step 1 of 8</div>
+    <div class="progress-label" id="progressLabel">Step 1 of 9/div>
     <div class="progress-bar" aria-hidden="true">
       <div class="progress-fill" id="progressFill"></div>
     </div>
@@ -147,6 +147,70 @@
     </div>
   </section>
 
+  <!-- 4: Example Outputs -->
+<section class="screen" id="examples" aria-labelledby="exTitle">
+  <h1 id="exTitle">Example Outputs by Role</h1>
+
+  <div class="card">
+    <p class="muted">
+      These examples show what role-appropriate alt text looks like. Use them as a reference before you start practice.
+    </p>
+
+    <div class="examples-grid">
+      <!-- Informative -->
+      <div class="example">
+        <h2 class="example-title">Informative</h2>
+        <img class="example-img" src="images/informative_example.jpg" alt="">
+        <div class="example-alt">
+          <div class="example-label">Alt text example</div>
+          <div class="example-text">alt="Presenter explaining financial performance data to a team during a meeting."</div>
+        </div>
+        <div class="example-note">Describe meaning and context. Avoid “image of”.</div>
+      </div>
+
+      <!-- Functional -->
+      <div class="example">
+        <h2 class="example-title">Functional</h2>
+        <img class="example-img" src="images/functional_button_example.jpg" alt="">
+        <div class="example-alt">
+          <div class="example-label">Alt text example</div>
+          <div class="example-text">alt="Upload file."</div>
+        </div>
+        <div class="example-note">Describe the action, not the appearance.</div>
+      </div>
+
+      <!-- Decorative -->
+      <div class="example">
+        <h2 class="example-title">Decorative</h2>
+        <img class="example-img" src="images/sunset_decorative_example.avif" alt="">
+        <div class="example-alt">
+          <div class="example-label">Alt attribute example</div>
+          <div class="example-text"><code>alt=""</code></div>
+        </div>
+        <div class="example-note">Decorative images should be skipped by screen readers.</div>
+      </div>
+
+      <!-- Complex -->
+      <div class="example">
+        <h2 class="example-title">Complex</h2>
+        <img class="example-img" src="images/complex_data_visualization.png" alt="">
+        <div class="example-alt">
+          <div class="example-label">Alt text example</div>
+          <div class="example-text">
+            alt="Line chart showing total revenue per team from January to June, with A-Team highest and peaking near €5,000 in mid-April.""
+          </div>
+        </div>
+        <div class="example-note">Summarize the key trend. Add longer detail in surrounding text if needed.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <button class="btn ghost back" type="button">Back</button>
+    <button class="btn primary next" type="button">Next</button>
+  </div>
+</section>
+
   <!-- 4: Practice 1 (Informative) -->
   <section class="screen" id="practice1" aria-labelledby="p1Title">
     <h1 id="p1Title">Practice 1 – Informative Image</h1>
@@ -169,7 +233,7 @@
 
       <div class="field">
         <label class="label" for="alt1">2) Write alt text (purpose-focused)</label>
-        <textarea id="alt1" rows="4" placeholder="Write concise alt text that matches the article context..."></textarea>
+        <textarea id="alt1" rows="4" placeholder="Write concise alt text that matches the article/image's context..."></textarea>
         <div class="microhint">Avoid “image of”. Include key meaning/action relevant to the article.</div>
       </div>
 
